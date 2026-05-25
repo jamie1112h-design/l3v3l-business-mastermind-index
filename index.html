@@ -398,10 +398,10 @@
                 <li>Deal structure options</li>
               </ul>
               <div class="desc-intake">
-                <span class="intake-badge">6 Seed Questions → 12 Custom</span>
-                <span class="intake-note">Establishes negotiation subject and stakes, both parties' interests and constraints, your BATNA, and the deadline in play.</span>
+                <span class="intake-badge">6 Layer 1 → 10 Adaptive Layer 2</span>
+                <span class="intake-note">Layer 1 classifies the negotiation type across five categories. Layer 2 generates 10 adaptive questions specific to your counterpart, relationship dynamics, and situation. Draws on 14 canonical systems and 119 RTTRs.</span>
               </div>
-              <button class="desc-activate">Activate Negotiation Machine &nbsp;→</button>
+              <button class="desc-activate" onclick="window.location.href='https://monumental-sopapillas-d1862e.netlify.app/L3V3L_Negotiation_Machine_v10.html'">Activate Negotiation Machine &nbsp;→</button>
             </div>
           </div>
         </div>
@@ -758,10 +758,11 @@ document.querySelectorAll('.machine-card').forEach(card => {
 document.querySelectorAll('.desc-activate').forEach(btn => {
   btn.addEventListener('click', function(e) {
     e.stopPropagation();
+    // If button has its own onclick, let it fire — do not show placeholder alert
+    if (this.hasAttribute('onclick')) return;
     const panel    = this.closest('.desc-panel');
-    const panelId  = panel.id; // e.g. "panel-strategy"
+    const panelId  = panel.id;
     const machineId = panelId.replace('panel-', '');
-    // Placeholder – wire to intake / machine launch when built
     alert('Launching: ' + machineId + '\n\n(Intake and machine interface to be connected here.)');
   });
 });
