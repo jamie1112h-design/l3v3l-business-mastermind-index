@@ -285,6 +285,7 @@
     text-align: center; margin-bottom: 22px;
   }
 </style>
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@tabler/icons-webfont@latest/tabler-icons.min.css">
 </head>
 <body>
 
@@ -316,7 +317,7 @@
         <div class="machine-cell">
           <button class="machine-card" data-id="strategy">
             <div class="card-row1">
-              <span class="card-icon">♟</span>
+              <i class="ti ti-tournament card-icon" style="color:#85b7eb;" aria-hidden="true"></i>
               <span class="card-title">Strategy</span>
               <span class="card-chevron">▼</span>
             </div>
@@ -347,7 +348,7 @@
         <div class="machine-cell">
           <button class="machine-card" data-id="marketing">
             <div class="card-row1">
-              <span class="card-icon">📡</span>
+              <i class="ti ti-speakerphone card-icon" style="color:#4a9e6a;" aria-hidden="true"></i>
               <span class="card-title">Marketing</span>
               <span class="card-chevron">▼</span>
             </div>
@@ -378,7 +379,7 @@
         <div class="machine-cell">
           <button class="machine-card" data-id="negotiation">
             <div class="card-row1">
-              <span class="card-icon">🤝</span>
+              <i class="ti ti-arrows-exchange card-icon" style="color:#f0c040;" aria-hidden="true"></i>
               <span class="card-title">Negotiation</span>
               <span class="card-chevron">▼</span>
             </div>
@@ -398,10 +399,10 @@
                 <li>Deal structure options</li>
               </ul>
               <div class="desc-intake">
-                <span class="intake-badge">6 Layer 1 → 10 Adaptive Layer 2</span>
-                <span class="intake-note">Layer 1 classifies the negotiation type across five categories. Layer 2 generates 10 adaptive questions specific to your counterpart, relationship dynamics, and situation. Draws on 14 canonical systems and 119 RTTRs.</span>
+                <span class="intake-badge">6 Seed Questions → 12 Custom</span>
+                <span class="intake-note">Establishes negotiation subject and stakes, both parties' interests and constraints, your BATNA, and the deadline in play.</span>
               </div>
-              <button class="desc-activate" onclick="window.location.href='https://monumental-sopapillas-d1862e.netlify.app/L3V3L_Negotiation_Machine_v10.html'">Activate Negotiation Machine &nbsp;→</button>
+              <button class="desc-activate">Activate Negotiation Machine &nbsp;→</button>
             </div>
           </div>
         </div>
@@ -758,12 +759,19 @@ document.querySelectorAll('.machine-card').forEach(card => {
 document.querySelectorAll('.desc-activate').forEach(btn => {
   btn.addEventListener('click', function(e) {
     e.stopPropagation();
-    // If button has its own onclick, let it fire — do not show placeholder alert
-    if (this.hasAttribute('onclick')) return;
     const panel    = this.closest('.desc-panel');
-    const panelId  = panel.id;
-    const machineId = panelId.replace('panel-', '');
-    alert('Launching: ' + machineId + '\n\n(Intake and machine interface to be connected here.)');
+    const machineId = panel.id.replace('panel-', '');
+    const MACHINE_URLS = {
+      'strategy':    'https://monumental-sopapillas-d1862e.netlify.app/L3V3L_Strategy_Machine_v4.html',
+      'marketing':   'https://monumental-sopapillas-d1862e.netlify.app/L3V3L_Marketing_Machine_v4.html',
+      'negotiation': 'https://monumental-sopapillas-d1862e.netlify.app/L3V3L_Negotiation_Machine_v10.html',
+    };
+    const url = MACHINE_URLS[machineId];
+    if (url) {
+      window.location.href = url;
+    } else {
+      alert('This machine is coming soon.\n\nNew machines are added each week.');
+    }
   });
 });
 </script>
