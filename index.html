@@ -260,7 +260,18 @@
   .row-divider {
     height: 1px;
     background: linear-gradient(90deg, transparent, var(--border), transparent);
-    margin: 24px 0 20px;
+    margin: 24px 0 12px;
+  }
+
+  /* ── Development notice (temporary, Row I only build) ── */
+  .dev-notice {
+    text-align: center;
+    font-family: 'Share Tech Mono', monospace;
+    font-size: 9px;
+    letter-spacing: 2px;
+    text-transform: uppercase;
+    color: var(--text-faint);
+    margin: 0 0 22px;
   }
 
   /* ── Footer ── */
@@ -411,6 +422,7 @@
     </div>
 
     <div class="row-divider"></div>
+    <div class="dev-notice">Machines below are in development</div>
 
     <!-- ── ROW 2 ── -->
     <div class="row-block">
