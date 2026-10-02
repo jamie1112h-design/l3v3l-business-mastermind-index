@@ -1,0 +1,7 @@
+# Send every request on the old Level33 domain to quvivant.com.
+# The path and any query string (for example ?token=...) carry over to the new address.
+# The trailing ! forces the redirect even though the old domain also serves this site.
+https://level33businessmastermind.com/* https://quvivant.com/:splat 301!
+http://level33businessmastermind.com/* https://quvivant.com/:splat 301!
+https://www.level33businessmastermind.com/* https://quvivant.com/:splat 301!
+http://www.level33businessmastermind.com/* https://quvivant.com/:splat 301!
